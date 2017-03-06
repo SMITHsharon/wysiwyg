@@ -12,7 +12,7 @@ This assignment ...
 1. Created an array of objects, `famePeople`, that represent famous people
 2. Created a text input in the DOM
 3. Beneath that, created a container, block element in your DOM, id=`peopleContainer`
-4. Created a DOM element for each of the objects inside the container; id=`eachPerson; 
+4. Created a DOM element for each of the objects inside the container; 
 style for `person` elements is discretionary
 
 #### `css` stylings
