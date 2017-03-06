@@ -1,6 +1,7 @@
 var onEnterKey = document.getElementById("enterKey");
-// var thisPerson = document.getElementById("eachPerson");
 var everyone = document.getElementById("peopleContainer");
+var thisPersonContainer = document.getElementsByClassName("personContainer");
+var thisPerson = document.getElementsByClassName("eachPerson");
 
 // 1. Create an array of objects that represents famous people (see structure below).
 var famePeople = [
@@ -61,14 +62,12 @@ var famePeople = [
 // write the famePeople array contents to the DOM
 //******************************************************
 function writeToDOM () {
-// var everyone = document.getElementById("peopleContainer");
-console.log("famePeople array", famePeople);
  
   for (var i=0; i<famePeople.length; i++) {
     everyone.innerHTML += 
       `<div class="personContainer" id="person$(i)">
         <div class="eachPerson">
-          <header>${famePeople[i].name}: 
+          <header><strong>${famePeople[i].name}</strong><br>
           ${famePeople[i].title}</header>
           <img class="thisImage" src="${famePeople[i].image}">
           <section>${famePeople[i].bio}</section>
@@ -78,12 +77,6 @@ console.log("famePeople array", famePeople);
   }
 }
 
-// function writeSolitary () {
-// 	console.log("thisPerson :: ", thisPerson);
-// 	thisPerson.innerHTML = "writing this person";
-	
-// 	return thisPerson;
-// }
 writeToDOM();
 
 
@@ -97,7 +90,6 @@ writeToDOM();
 //******************************************************
 onEnterKey.addEventListener("keyup", function(e) {
 	e.which = e.which || e.keyCode;
-console.log("Enter Key event handler firing");
 	if (e.which === 13) {
      	onEnterKey.value = "";
      } else {
@@ -108,13 +100,46 @@ console.log("Enter Key event handler firing");
 
 
 //******************************************************
-// Click Events
+// Click Event on a Person
 //******************************************************
-// 8. When you click on one of the person elements, 
-// a dotted border should appear around it.
 // 9. When you click on one of the person elements, 
 // the text input should immediately gain focus so that you can start typing.
 
+// thisPerson.addEventListener("click", focusPerson);
+
+// function focusPerson () {
+//   console.log("in focusPerson...");
+// }
+
+
+// console.log("thisPerson[0].value :: ", thisPerson[0].value);
+
+window.addEventListener("click", function(e) {
+
+  var redTarget;
+  
+  // each <eachPerson> class is a Person container
+  // if <click> is exactly on the <eachPerson> element ... 
+  if (e.target.classList.contains("eachPerson") === true) {
+    e.target.parentNode.classList.add("clicked");
+    redTarget = e.target.parentNode;
+    console.log("redTarget :: ", redTarget);
+    
+  } else if (e.target.parentNode.classList.contains("eachPerson") === true) {
+    // if <click> anywhere in the target area
+    e.target.parentNode.parentNode.classList.add("clicked");
+    redTarget = e.target.parentNode.parentNode;
+    console.log("redTarget :: ", redTarget);
+  }
+
+  // reset any previously clicked item to unclicked status (plain border)
+  for (var i=0; i<thisPerson.length; i++) {
+    if (thisPersonContainer[i] !== redTarget) {
+      thisPersonContainer[i].classList.remove("clicked");
+      thisPersonContainer[i].classList.add("unclicked");
+    }
+  }
+});
 
 
 

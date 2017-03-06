@@ -20,9 +20,11 @@ styling for `person` elements is discretionary
 6. Odd numbered element: have a light blue background
 
 #### functionality implemented in `javascript` 
-7. Each element's DOM structure should be as shown below.
-8. When you click on one of the person elements, a dotted border should appear around it.
-9. When you click on one of the person elements, the text input should immediately gain focus so that you can start typing.
+7. Each element's DOM structure should be as shown below. 
+- When one of the `person` elements is clicked: 
+* a red dotted border appears around it, and if some other element has the dotted border, it reverts back to solid
+* the textbox input area immediately gains focus so that user can start typing
+
 10. When there is a highlighted person element, and you begin typing in the input box, the person's biography should be immediately bound to what you are typing, letter by letter.
 11. When you press the enter/return key when typing in the input field, then the content of the input field should immediately be blank.
 
