@@ -13,13 +13,13 @@ This assignment ...
 2. Created a text input in the DOM
 3. Beneath that, created a container, block element in your DOM, id=`peopleContainer`
 4. Created a DOM element for each of the objects inside the container; 
-style for `person` elements is discretionary
+styling for `person` elements is discretionary
 
 #### `css` stylings
-5. For every even numbered element, have a light yellow background.
-6. For every odd numbered element, have a light blue background.
+5. Even numbered element: have a light yellow background
+6. Odd numbered element: have a light blue background
 
-#### implemented in `javascript` 
+#### functionality implemented in `javascript` 
 7. Each element's DOM structure should be as shown below.
 8. When you click on one of the person elements, a dotted border should appear around it.
 9. When you click on one of the person elements, the text input should immediately gain focus so that you can start typing.

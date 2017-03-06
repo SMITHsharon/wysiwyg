@@ -5,6 +5,16 @@ body {
 	font-size: 1.2em;
 }
 
+#pageHead {
+	margin-top: 50px;
+	margin-left: 100px;
+}
+
+h1 {
+	font-size: 3em;
+	margin-bottom: 0;
+}
+
 /******************************************/
 /* define the flex layout structure
 /******************************************/
@@ -40,9 +50,21 @@ body {
 
 
 
-
 /******************************************/
 /* 5. For every even numbered element, have a light yellow background.*/
 /* 6. For every odd numbered element, have a light blue background.*/
 /******************************************/
+
+#peopleContainer .personContainer:nth-child(2n) {
+	background-color: lightyellow;
+}
+
+#peopleContainer .personContainer:nth-child(2n+1) {
+	background-color: lightcyan;
+}
+
+
+
+
+
 
