@@ -2,6 +2,8 @@ var onEnterKey = document.getElementById("enterKey");
 var everyone = document.getElementById("peopleContainer");
 var thisPersonContainer = document.getElementsByClassName("personContainer");
 var thisPerson = document.getElementsByClassName("eachPerson");
+var bioEdit = document.getElementById("userEditText");
+console.log("bioEdit :: ", bioEdit);
 
 // 1. Create an array of objects that represents famous people (see structure below).
 var famePeople = [
@@ -83,26 +85,10 @@ writeToDOM();
 
 
 //******************************************************
-// <Enter> key event handler
-// 11. When you press the enter/return key when typing in the input field, 
-// then the content of the input field should immediately be blank.
-//******************************************************
-onEnterKey.addEventListener("keyup", function(e) {
-	e.which = e.which || e.keyCode;
-	if (e.which === 13) {
-     	onEnterKey.value = "";
-     } else {
-     return false;
-     }
-});
-
-
-
-//******************************************************
 // Click Event on a Person
 //******************************************************
 // 9. When you click on one of the person elements, 
-// the text input should immediately gain focus so that you can start typing.
+// 
 
 // thisPerson.addEventListener("click", focusPerson);
 
@@ -110,7 +96,15 @@ onEnterKey.addEventListener("keyup", function(e) {
 //   console.log("in focusPerson...");
 // }
 
-
+//******************************************************
+// Click Event on a Person
+//
+// 8. When you click on one of the person elements, 
+// a dotted border should appear around it
+// ... Adding the <clicked> class picks up the <css><red><dotted> border styling
+// AND
+// 9.the text input should immediately gain focus so that you can start typing.
+//******************************************************
 
 window.addEventListener("click", function(e) {
 
@@ -140,15 +134,35 @@ window.addEventListener("click", function(e) {
       thisPersonContainer[i].classList.add("unclicked");
     }
   }
+  personBioEdit(redTarget); // call function to allow edit of selected <person> biography
+
 });
 
 
+function personBioEdit (thisPerson) {
+  console.log("ready to edit bio");
+  console.log("thisPerson :: ", thisPerson);
+  bioEdit.value = "sample text here";
+}
 
 // 10. When there is a highlighted person element, and you begin typing in the input box, 
 // the person's biography should be immediately bound to what you are typing, letter by letter.
 
 
 
+//******************************************************
+// <Enter> key event handler
+// 11. When you press the enter/return key when typing in the input field, 
+// then the content of the input field should immediately be blank.
+//******************************************************
+// onEnterKey.addEventListener("keyup", function(e) {
+//  e.which = e.which || e.keyCode;
+//  if (e.which === 13) {
+//        onEnterKey.value = "";
+//      } else {
+//      return false;
+//      }
+// });
 
 
 
