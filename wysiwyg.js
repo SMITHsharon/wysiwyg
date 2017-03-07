@@ -62,24 +62,23 @@ var famePeople = [
 // write the famePeople array contents to the DOM
 //******************************************************
 function writeToDOM () {
+
+  var personString = "";
  
   for (var i=0; i<famePeople.length; i++) {
-    everyone.innerHTML += 
-      `<div class="personContainer" id="person$(i)">
-        <div class="eachPerson">
-          <header><strong>${famePeople[i].name}</strong><br>
-          ${famePeople[i].title}</header>
-          <img class="thisImage" src="${famePeople[i].image}">
-          <section>${famePeople[i].bio}</section>
-          <footer>Born: ${famePeople[i].lifespan.birth}; <em>(still living)</em></footer>
-        </div>
-      </div>`;
+    personString += `<div class="personContainer" id="person$(i)">`;
+    personString += `<div class="eachPerson">`;
+    personString += `<header><strong>${famePeople[i].name}</strong><br>`;
+    personString += `${famePeople[i].title}</header>`;
+    personString += `<img class="thisImage" src="${famePeople[i].image}">`;
+    personString += `<section>${famePeople[i].bio}</section>`;
+    personString += `<footer>Born: ${famePeople[i].lifespan.birth}; <em>(still living)</em></footer>`;
+    personString += `</div></div>`;
   }
+  everyone.innerHTML = personString;
 }
 
 writeToDOM();
-
-
 
 
 
@@ -112,7 +111,6 @@ onEnterKey.addEventListener("keyup", function(e) {
 // }
 
 
-// console.log("thisPerson[0].value :: ", thisPerson[0].value);
 
 window.addEventListener("click", function(e) {
 
@@ -123,13 +121,16 @@ window.addEventListener("click", function(e) {
   if (e.target.classList.contains("eachPerson") === true) {
     e.target.parentNode.classList.add("clicked");
     redTarget = e.target.parentNode;
-    console.log("redTarget :: ", redTarget);
     
   } else if (e.target.parentNode.classList.contains("eachPerson") === true) {
     // if <click> anywhere in the target area
     e.target.parentNode.parentNode.classList.add("clicked");
     redTarget = e.target.parentNode.parentNode;
-    console.log("redTarget :: ", redTarget);
+
+  } else if (e.target.classList.contains("personContainer") === true) {
+    // if <click> anywhere in the /dead/ area of target area
+    e.target.classList.add("clicked");
+    redTarget = e.target;
   }
 
   // reset any previously clicked item to unclicked status (plain border)
