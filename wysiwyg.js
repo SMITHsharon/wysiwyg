@@ -2,8 +2,9 @@ var onEnterKey = document.getElementById("enterKey");
 var everyone = document.getElementById("peopleContainer");
 var thisPersonContainer = document.getElementsByClassName("personContainer");
 var thisPerson = document.getElementsByClassName("eachPerson");
-var bioEdit = document.getElementById("userEditText");
-console.log("bioEdit :: ", bioEdit);
+var outputBioEdit = document.getElementById("userEditText");
+var changeBioChar = document.getElementsByClassName("eachPerson");
+
 
 // 1. Create an array of objects that represents famous people (see structure below).
 var famePeople = [
@@ -73,7 +74,7 @@ function writeToDOM () {
     personString += `<header><strong>${famePeople[i].name}</strong><br>`;
     personString += `${famePeople[i].title}</header>`;
     personString += `<img class="thisImage" src="${famePeople[i].image}">`;
-    personString += `<section>${famePeople[i].bio}</section>`;
+    personString += `<section class="thisBio">${famePeople[i].bio}</section>`;
     personString += `<footer>Born: ${famePeople[i].lifespan.birth}; <em>(still living)</em></footer>`;
     personString += `</div></div>`;
   }
@@ -115,16 +116,28 @@ window.addEventListener("click", function(e) {
   if (e.target.classList.contains("eachPerson") === true) {
     e.target.parentNode.classList.add("clicked");
     redTarget = e.target.parentNode;
+    // console.log("e.target.parentNode :: ", e.target.parentNode);
+    // console.log("e.target.childNodes :: ", e.target.childNodes);
+    // console.log("e.target.childNodes.section.innerHTML :: ", e.target.childNodes.section.innerHTML);
+console.log("e.target.childNodes.section.innerHTML :: ", e.target.childNodes[2].innerHTML);
+    personBioEdit(e.target.childNodes[2].innerHTML);
+
     
   } else if (e.target.parentNode.classList.contains("eachPerson") === true) {
     // if <click> anywhere in the target area
     e.target.parentNode.parentNode.classList.add("clicked");
     redTarget = e.target.parentNode.parentNode;
+console.log("e.target.parentNode.childNodes.section.innerHTML :: ", e.target.parentNode.childNodes[2].innerHTML);
+    personBioEdit(e.target.parentNode.childNodes[2].innerHTML);
+
 
   } else if (e.target.classList.contains("personContainer") === true) {
     // if <click> anywhere in the /dead/ area of target area
     e.target.classList.add("clicked");
     redTarget = e.target;
+    console.log("e.target :: ", e.target);
+// console.log("e.target.childNodes.childNodes.section.innerHTML :: ", e.target.childNodes[0].childNodes[2].innerHTML);
+    personBioEdit(e.target.childNodes[0].childNodes[2].innerHTML);
   }
 
   // reset any previously clicked item to unclicked status (plain border)
@@ -134,34 +147,60 @@ window.addEventListener("click", function(e) {
       thisPersonContainer[i].classList.add("unclicked");
     }
   }
-  personBioEdit(redTarget); // call function to allow edit of selected <person> biography
+
+  // personBioEdit(redTarget); // call function to allow edit of selected <person> biography
 
 });
 
 
-function personBioEdit (thisPerson) {
+function personBioEdit (thisPersonBio) {
   console.log("ready to edit bio");
-  console.log("thisPerson :: ", thisPerson);
-  bioEdit.value = "sample text here";
+  console.log("thisPersonBio :: ", thisPersonBio);
+  outputBioEdit.value = "sample text here";
+
+  // writes the bio in the Person box to the user input textbox
+  outputBioEdit.value = thisPersonBio;
+
+  changeBioChar.addEventListener("click", function(e) {
+    // e.which = e.which || e.keyCode;
+    if (e.which === 13) {
+       // onEnterKey.value = "";
+       outputBioEdit.placeholder="Biogrophy Goes Here...";
+       return outputBioEdit.value;
+
+     } else { // user is editing the bio content for this person
+      changedBioChar = e.target;
+      console.log("changedBioChar :: ", changedBioChar);
+     }
+    
+  })
+
 }
+
 
 // 10. When there is a highlighted person element, and you begin typing in the input box, 
 // the person's biography should be immediately bound to what you are typing, letter by letter.
 
 
 
-//******************************************************
+// ******************************************************
 // <Enter> key event handler
 // 11. When you press the enter/return key when typing in the input field, 
 // then the content of the input field should immediately be blank.
-//******************************************************
-// onEnterKey.addEventListener("keyup", function(e) {
-//  e.which = e.which || e.keyCode;
-//  if (e.which === 13) {
-//        onEnterKey.value = "";
-//      } else {
-//      return false;
-//      }
+// ******************************************************
+// everyone.addEventListener("click", function(e) {
+//   if (e.target.classList.value === "thisBio") {
+//     console.log("e.target.classList.value :: ", e.target.classList.value);
+//     changedBioChar = e.target;
+//     bioEdit.value = changedBioChar.innerHTML;
+//     bioEdit.focus();
+//   }
+ // e.which = e.which || e.keyCode;
+ // if (e.which === 13) {
+ //       onEnterKey.value = "";
+ //     } else {
+ //     return false;
+ //     }
 // });
 
 
