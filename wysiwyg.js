@@ -3,7 +3,7 @@ var everyone = document.getElementById("peopleContainer");
 var thisPersonContainer = document.getElementsByClassName("personContainer");
 var thisPerson = document.getElementsByClassName("eachPerson");
 var outputBioEdit = document.getElementById("userEditText");
-var changeBioChar = document.getElementsByClassName("eachPerson");
+// var changeBioChar = document.getElementsByClassName("eachPerson");
 
 
 // 1. Create an array of objects that represents famous people (see structure below).
@@ -120,7 +120,7 @@ window.addEventListener("click", function(e) {
     // console.log("e.target.childNodes :: ", e.target.childNodes);
     // console.log("e.target.childNodes.section.innerHTML :: ", e.target.childNodes.section.innerHTML);
 console.log("e.target.childNodes.section.innerHTML :: ", e.target.childNodes[2].innerHTML);
-    personBioEdit(e.target.childNodes[2].innerHTML);
+    // personBioEdit(e.target.childNodes[2].innerHTML);
 
     
   } else if (e.target.parentNode.classList.contains("eachPerson") === true) {
@@ -128,7 +128,7 @@ console.log("e.target.childNodes.section.innerHTML :: ", e.target.childNodes[2].
     e.target.parentNode.parentNode.classList.add("clicked");
     redTarget = e.target.parentNode.parentNode;
 console.log("e.target.parentNode.childNodes.section.innerHTML :: ", e.target.parentNode.childNodes[2].innerHTML);
-    personBioEdit(e.target.parentNode.childNodes[2].innerHTML);
+    // personBioEdit(e.target.parentNode.childNodes[2].innerHTML);
 
 
   } else if (e.target.classList.contains("personContainer") === true) {
@@ -137,7 +137,7 @@ console.log("e.target.parentNode.childNodes.section.innerHTML :: ", e.target.par
     redTarget = e.target;
     console.log("e.target :: ", e.target);
 // console.log("e.target.childNodes.childNodes.section.innerHTML :: ", e.target.childNodes[0].childNodes[2].innerHTML);
-    personBioEdit(e.target.childNodes[0].childNodes[2].innerHTML);
+    // personBioEdit(e.target.childNodes[0].childNodes[2].innerHTML);
   }
 
   // reset any previously clicked item to unclicked status (plain border)
@@ -156,7 +156,8 @@ console.log("e.target.parentNode.childNodes.section.innerHTML :: ", e.target.par
 function personBioEdit (thisPersonBio) {
   console.log("ready to edit bio");
   console.log("thisPersonBio :: ", thisPersonBio);
-  outputBioEdit.value = "sample text here";
+  var changeBioChar = document.getElementsByClassName("eachPerson");
+  // outputBioEdit.value = "sample text here";
 
   // writes the bio in the Person box to the user input textbox
   outputBioEdit.value = thisPersonBio;
