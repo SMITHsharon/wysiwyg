@@ -1,13 +1,13 @@
 # NSS WYSIWYG Exercise
 
 ### Project Description 
-This assignment ...
+Five famous people, [Barack Obama, Daenerys Targaryen, Meryl Streep, Kate McKinnon, Bernie Sanders], are hard-coded into an Object Array along with required attributes: `title`, `name`, `bio`, `lifespan`, as well as an image to be displayed. The contents of the array are written dynamically to the DOM. If a viewer/user clicks on the *card* for one of these Famous People, the card border displays in `dotted red`, and the user has opportunity to edit the Person's biography. 
 
 #### WYSIWYG Initial State Screen 
-![https://raw.githubusercontent.com/SMITHsharon/wysiwyg/screens/screens/WYSIWYG%20Initial%20State%20Screen%20Grab.png)
+![WYSIWYG Initial State Screen](https://raw.githubusercontent.com/SMITHsharon/wysiwyg/screens/screens/WYSIWYG%20Initial%20State%20Screen%20Grab.png)
 
 #### WYSIWYG Selected Element Screen :: POTUS
-![https://raw.githubusercontent.com/SMITHsharon/wysiwyg/screens/screens/WYSIWYG%20Selected%20Element%20Screen%20Grab.png)
+![WYSIWYG Selected Element Screen](https://raw.githubusercontent.com/SMITHsharon/wysiwyg/screens/screens/WYSIWYG%20Selected%20Element%20Screen%20Grab.png)
 
 
 ### Project Specs
@@ -27,8 +27,8 @@ styling for `eachPerson` elements is discretionary
 - a red dotted border displays around it, and if some other element has the dotted border, it reverts back to solid
 - the textbox input area immediately gains focus so the user can start typing
 
-8. Additionally, when an `eachPerson` element is selected, that person's biography displays in the textbox input area. The selected Person's biography displayed on their *card* is immediately bound to what the user types in the textbos input area, character by character.
-11. When the user presses the `Enter/Return` key when typing in the input field, the content of the input field displays the placeholder, *Biography Goes Here...*
+8. Additionally, when an `eachPerson` element is selected, that person's biography displays in the textbox input area. The selected Person's biography displayed on their *card* is immediately bound to what the user types in the textbox input area, character by character.
+9. When the user presses the `Enter/Return` key when typing in the input field, the content of the input field displays the placeholder, *Biography Goes Here...*
 
 
 ######
