@@ -15,8 +15,9 @@ h1 {
 	margin-bottom: 0;
 }
 
+
 /******************************************/
-/* define the flex layout structure
+/* defines the flex layout structure
 /******************************************/
 
 #peopleContainer {
@@ -37,6 +38,7 @@ h1 {
 	padding: 5% 5%;
 }
 
+
 /******************************************/
 /* image styling
 /******************************************/
@@ -51,11 +53,11 @@ h1 {
 
 
 /******************************************/
-/* 5. For every even numbered element, have a light yellow background.*/
-/* 6. For every odd numbered element, have a light blue background.*/
+/* Even numbered elements have a light yellow background. 
+/* Odd numbered elements have a light blue background. 
 /*
-/* 8. When you click on one of the person elements, */
-/* a dotted border should appear around it.
+/* When the user clicks on a Person element, 
+/* a dotted border displays around it.
 /******************************************/
 
 #peopleContainer .personContainer:nth-child(2n) {
@@ -73,9 +75,6 @@ h1 {
 .unclicked { // reset after <click> focus changes
 	border: 1px solid slategrey;
 }
-
-
-
 
 
 
