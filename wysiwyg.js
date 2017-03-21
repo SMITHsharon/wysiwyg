@@ -5,6 +5,8 @@ var thisPerson = document.getElementsByClassName("eachPerson");
 var outputBioEdit = document.getElementById("userEditText");
 // var changeBioChar = document.getElementsByClassName("eachPerson");
 
+var personBioEdit;
+var editingBio = false;
 
 // 1. Create an array of objects that represents famous people (see structure below).
 var famePeople = [
@@ -120,7 +122,8 @@ window.addEventListener("click", function(e) {
     // console.log("e.target.childNodes :: ", e.target.childNodes);
     // console.log("e.target.childNodes.section.innerHTML :: ", e.target.childNodes.section.innerHTML);
 console.log("e.target.childNodes.section.innerHTML :: ", e.target.childNodes[2].innerHTML);
-    // personBioEdit(e.target.childNodes[2].innerHTML);
+    // personBioEdit = e.target.childNodes[2].innerHTML;
+    personBioEdit = e.target.childNodes[2];
 
     
   } else if (e.target.parentNode.classList.contains("eachPerson") === true) {
@@ -128,7 +131,8 @@ console.log("e.target.childNodes.section.innerHTML :: ", e.target.childNodes[2].
     e.target.parentNode.parentNode.classList.add("clicked");
     redTarget = e.target.parentNode.parentNode;
 console.log("e.target.parentNode.childNodes.section.innerHTML :: ", e.target.parentNode.childNodes[2].innerHTML);
-    // personBioEdit(e.target.parentNode.childNodes[2].innerHTML);
+    // personBioEdit = e.target.parentNode.childNodes[2].innerHTML;
+    personBioEdit = e.target.parentNode.childNodes[2];
 
 
   } else if (e.target.classList.contains("personContainer") === true) {
@@ -137,41 +141,59 @@ console.log("e.target.parentNode.childNodes.section.innerHTML :: ", e.target.par
     redTarget = e.target;
     console.log("e.target :: ", e.target);
 // console.log("e.target.childNodes.childNodes.section.innerHTML :: ", e.target.childNodes[0].childNodes[2].innerHTML);
-    // personBioEdit(e.target.childNodes[0].childNodes[2].innerHTML);
+    // personBioEdit = e.target.childNodes[0].childNodes[2].innerHTML;
+    personBioEdit = e.target.childNodes[0].childNodes[2];
   }
+
+  editBio();
 
   // reset any previously clicked item to unclicked status (plain border)
   for (var i=0; i<thisPerson.length; i++) {
-    if (thisPersonContainer[i] !== redTarget) {
+    if ((thisPersonContainer[i] !== redTarget)) {
       thisPersonContainer[i].classList.remove("clicked");
       thisPersonContainer[i].classList.add("unclicked");
     }
   }
 
-  // personBioEdit(redTarget); // call function to allow edit of selected <person> biography
+// console.log("personBioEdit", personBioEdit);
+  // personBioEdit = redTarget; // call function to allow edit of selected <person> biography
+// editBio();
 
 });
 
 
-function personBioEdit (thisPersonBio) {
+function editBio () {
   console.log("ready to edit bio");
-  console.log("thisPersonBio :: ", thisPersonBio);
-  var changeBioChar = document.getElementsByClassName("eachPerson");
+  // console.log("thisPersonBio :: ", thisPersonBio);
+  // var changeBioChar = document.getElementsByClassName("eachPerson");
+  var changeBioChar = document.getElementById("userEditText");
+  changeBioChar.focus();
+  editingBio = true;
+  // var thisChar;
+  console.log("changeBioChar", changeBioChar);
   // outputBioEdit.value = "sample text here";
 
   // writes the bio in the Person box to the user input textbox
-  outputBioEdit.value = thisPersonBio;
+  outputBioEdit.value = personBioEdit.innerHTML;
 
-  changeBioChar.addEventListener("click", function(e) {
+  changeBioChar.addEventListener("keyup", function(e) {
+    
     // e.which = e.which || e.keyCode;
     if (e.which === 13) {
        // onEnterKey.value = "";
-       outputBioEdit.placeholder="Biogrophy Goes Here...";
-       return outputBioEdit.value;
+       editingBio = false;
+       outputBioEdit.value ="Biogrophy Goes Here...";
+       console.log("EnterKey; editingBio ::", editingBio);
 
      } else { // user is editing the bio content for this person
-      changedBioChar = e.target;
-      console.log("changedBioChar :: ", changedBioChar);
+      
+      console.log("in the else to edit; editingBio ::", editingBio);
+      personBioEdit.innerHTML = outputBioEdit.value;
+      // thisChar = e.which;
+      // console.log("changeBioChar :: ", changeBioChar);
+      // console.log("thisChar", thisChar);
+      // console.log("String.fromCharCode(e.which", String.fromCharCode(e.which));
+      // personBioEdit = outputBioEdit;
      }
     
   })
@@ -179,30 +201,6 @@ function personBioEdit (thisPersonBio) {
 }
 
 
-// 10. When there is a highlighted person element, and you begin typing in the input box, 
-// the person's biography should be immediately bound to what you are typing, letter by letter.
-
-
-
-// ******************************************************
-// <Enter> key event handler
-// 11. When you press the enter/return key when typing in the input field, 
-// then the content of the input field should immediately be blank.
-// ******************************************************
-// everyone.addEventListener("click", function(e) {
-//   if (e.target.classList.value === "thisBio") {
-//     console.log("e.target.classList.value :: ", e.target.classList.value);
-//     changedBioChar = e.target;
-//     bioEdit.value = changedBioChar.innerHTML;
-//     bioEdit.focus();
-//   }
- // e.which = e.which || e.keyCode;
- // if (e.which === 13) {
- //       onEnterKey.value = "";
- //     } else {
- //     return false;
- //     }
-// });
 
 
 
