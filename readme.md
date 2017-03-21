@@ -4,10 +4,10 @@
 This assignment ...
 
 #### WYSIWYG Initial State Screen 
-<!-- ![WYSIWYG Initial State Screen Grab](https:xxx.png) -->
+![https://raw.githubusercontent.com/SMITHsharon/wysiwyg/screens/screens/WYSIWYG%20Initial%20State%20Screen%20Grab.png)
 
 #### WYSIWYG Selected Element Screen :: POTUS
-<!-- ![WYSIWYG Selected Element Screen Grab](https:xxx.png) -->
+![https://raw.githubusercontent.com/SMITHsharon/wysiwyg/screens/screens/WYSIWYG%20Selected%20Element%20Screen%20Grab.png)
 
 
 ### Project Specs
