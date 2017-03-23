@@ -1,6 +1,7 @@
 # NSS WYSIWYG Exercise
 
 ### Project Description 
+
 Five famous people, [Barack Obama, Daenerys Targaryen, Meryl Streep, Kate McKinnon, Bernie Sanders], are hard-coded into an Object Array along with required attributes: `title`, `name`, `bio`, `lifespan`, as well as an image to be displayed. The contents of the array are written dynamically to the DOM. If a viewer/user clicks on the *card* for one of these Famous People, the card border displays in `dotted red`, and the user has opportunity to edit the Person's biography. 
 
 #### WYSIWYG Initial State Screen 
@@ -31,7 +32,7 @@ styling for `eachPerson` elements is discretionary
 9. When the user presses the `Enter/Return` key when typing in the input field, the content of the input field displays the placeholder, *Biography Goes Here...*
 
 
-######
+####
 Object Structure
 ```
 {
@@ -45,7 +46,6 @@ Object Structure
   }
 }
 ```
-
 
 ### Technologies Used
 - html
