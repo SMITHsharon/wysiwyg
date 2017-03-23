@@ -109,7 +109,7 @@ writeToDOM();
 // the respective biography
 //******************************************************
 
-window.addEventListener("click", function(e) {
+everyone.addEventListener("click", function(e) {
 
   var redTarget;
   
