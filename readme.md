@@ -47,9 +47,9 @@ Object Structure
 ```
 
 ### Technologies Used
-- html
-- css
-- JavaScript
+- `html`
+- `css`
+- `JavaScript`
 
 
 ### How To View The Screen 
