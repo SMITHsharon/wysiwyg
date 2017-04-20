@@ -58,9 +58,8 @@ Object Structure
 git clone https://github.com/SMITHsharon/wysiwyg.git
 cd wysiwyg
 http-server -p 8080
+This will show in your browser at: http://localhost:8080
 ```
-
-This will show in your browser at: `http://localhost:8080`
 
 
 ### Contributor
